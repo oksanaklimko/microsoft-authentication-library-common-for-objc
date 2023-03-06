@@ -43,6 +43,8 @@ extern NSString * _Nonnull MSIDOAuthErrorDomain;
 extern NSString * _Nonnull MSIDKeychainErrorDomain;
 extern NSString * _Nonnull MSIDHttpErrorCodeDomain;
 
+extern NSString * _Nonnull MSIDForgottenPassword;
+
 extern NSExceptionName const _Nonnull MSIDGenericException;
 
 /*!
@@ -296,6 +298,15 @@ typedef NS_ENUM(NSInteger, MSIDErrorCode)
     // Throttling errors
     MSIDErrorThrottleCacheNoRecord = -51900,
     MSIDErrorThrottleCacheInvalidSignature = -51901,
+  
+  /*!
+   =========================================================
+   ForgottenPassword (514xxxx) - MSIDHttpErrorCodeDomain
+   =========================================================
+   */
+
+  MSIDErrorForgottenPasswordResponse    = -5140001,
+  
 
 };
 

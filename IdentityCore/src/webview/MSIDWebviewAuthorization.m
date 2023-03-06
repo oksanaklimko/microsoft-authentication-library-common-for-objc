@@ -83,6 +83,7 @@ static MSIDWebviewSession *s_currentSession = nil;
         return;
     }
     
+
     void (^startCompletionBlock)(NSURL *, NSError *) = ^void(NSURL *callbackURL, NSError *error) {
         MSID_LOG_WITH_CTX(MSIDLogLevelInfo, context, @"Result from authorization session callbackURL host: %@ , has error: %@", callbackURL.host, error ? @"YES" : @"NO");
 
@@ -93,7 +94,12 @@ static MSIDWebviewSession *s_currentSession = nil;
         }
         
         NSError *responseError = nil;
-        
+      if ([callbackURL.host isEqualToString:@"forgotten_password"]) {
+        responseError = MSIDCreateError(MSIDForgottenPassword, MSIDErrorForgottenPasswordResponse, @"Forget password link was tapped", nil, nil, nil, context.correlationId, nil, YES);
+//        completionHandler(nil, error);
+//        return;
+      }
+      
         MSIDWebviewResponse *response = [s_currentSession.webViewConfiguration responseWithResultURL:callbackURL
                                                                                              factory:s_currentSession.factory
                                                                                              context:context

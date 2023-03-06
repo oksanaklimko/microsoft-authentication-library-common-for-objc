@@ -40,6 +40,7 @@ NSString *MSIDErrorDomain = @"MSIDErrorDomain";
 NSString *MSIDOAuthErrorDomain = @"MSIDOAuthErrorDomain";
 NSString *MSIDKeychainErrorDomain = @"MSIDKeychainErrorDomain";
 NSString *MSIDHttpErrorCodeDomain = @"MSIDHttpErrorCodeDomain";
+NSString *MSIDForgottenPassword = @"MSIDForgottenPassword";
 NSString *MSIDInvalidTokenResultKey = @"MSIDInvalidTokenResultKey";
 NSInteger const MSIDSSOExtensionUnderlyingError = -6000;
 
@@ -184,7 +185,6 @@ NSDictionary* MSIDErrorDomainsAndCodes(void)
                       @(MSIDErrorJITWPJDeviceRegistrationFailed),
                       @(MSIDErrorJITWPJAccountIdentifierNil),
                       @(MSIDErrorJITWPJAcquireTokenError),
-
                       ],
               MSIDOAuthErrorDomain : @[// Server Errors
                       @(MSIDErrorServerOauth),
@@ -199,10 +199,14 @@ NSDictionary* MSIDErrorDomainsAndCodes(void)
                       @(MSIDErrorServerInvalidState),
                       @(MSIDErrorServerProtectionPoliciesRequired),
                       @(MSIDErrorAuthorizationFailed),
+                      @(MSIDErrorAuthorizationFailed)
                       ],
               MSIDHttpErrorCodeDomain : @[
                       @(MSIDErrorServerUnhandledResponse)
-                      ]
+                      ],
+              MSIDForgottenPassword : @[
+                @(MSIDErrorForgottenPasswordResponse)
+              ]
 
               // TODO: add new codes here
               };
